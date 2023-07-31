@@ -159,7 +159,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        // Intervention/image package
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -183,6 +184,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        // Intervention Image alias
+        'Image' => Intervention\Image\Facades\Image::class,
     ])->toArray(),
 
 ];
