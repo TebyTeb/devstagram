@@ -22,12 +22,12 @@
         method="POST"
         enctype="multipart/form-data"
       >
-      @csrf
-    </form>
+        @csrf
+      </form>
     </div>
     <div class="mt-10 rounded-lg bg-white p-10 shadow-xl md:mt-0 md:w-1/2">
       <form
-        action="{{ route('register') }}"
+        action="{{ route('posts.store') }}"
         method="POST"
         novalidate
       >
@@ -69,6 +69,18 @@
             <p class="my-2 rounded-lg bg-red-500 p-2 text-center text-sm text-white">{{ $message }}</p>
           @enderror
         </div>
+
+        <div class="mb-5">
+          <input
+            name="imagen"
+            type="hidden"
+            value="{{old('imagen')}}"
+          />
+          @error('imagen')
+            <p class="my-2 rounded-lg bg-red-500 p-2 text-center text-sm text-white">{{ $message }}</p>
+          @enderror
+        </div>
+
         <input
           class="w-full cursor-pointer rounded-lg bg-sky-600 p-3 font-bold uppercase text-white transition-colors hover:bg-sky-600"
           type="submit"
