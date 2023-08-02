@@ -11,7 +11,9 @@ class PostController extends Controller
 
   public function __construct()
   {
-    $this->middleware('auth');
+    // Protege los métodos de la clase de usuarios no autenticados
+    // Con el except liberamos ciertos métodos para ser accesibles sin autenticacion
+    $this->middleware('auth')->except(['show', 'index']);
   }
 
   public function index(User $user)
@@ -78,6 +80,7 @@ class PostController extends Controller
   public function show(User $user, Post $post)
   {
     return view('posts.show', [
+      'user' =>$user,
       'post' => $post
     ]);
   }
