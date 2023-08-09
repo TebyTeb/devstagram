@@ -56,7 +56,6 @@
                   type="submit"
                   value="seguir">
               </form>
-
             @else
               <form method="POST"
                 action="{{ route('users.unfollow', $user) }}">
@@ -67,7 +66,6 @@
                   type="submit"
                   value="dejar de seguir">
               </form>
-
             @endif
           @endif
         @endauth
@@ -78,21 +76,7 @@
   <section class="container mx-auto mt-10">
     <h2 class="my-10 text-center text-4xl font-black">Publicaciones</h2>
 
-    @if ($posts->count())
-      <div class="mx-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        @foreach ($posts as $post)
-          <a href="{{ route('posts.show', ['post' => $post, 'user' => $user]) }}">
-            <img src="{{ asset('uploads') . '/' . $post->imagen }}"
-              alt="Imagen del post {{ $post->titulo }}">
-          </a>
-        @endforeach
-      </div>
-      <div class="my-10">
-        {{ $posts->links('pagination::tailwind') }}
-      </div>
-    @else
-      <p class="text-center text-sm font-bold uppercase text-gray-600">Aún no hay posts</p>
-    @endif
+    <x-listar-post :posts="$posts" />
 
   </section>
 @endsection

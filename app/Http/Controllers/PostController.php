@@ -31,7 +31,7 @@ class PostController extends Controller
     // ]);
 
     // Este método es usando Eloquent (?)
-    $posts = Post::where('user_id', $user->id)->paginate(12);
+    $posts = Post::where('user_id', $user->id)->latest()->paginate(12);
 
     return view('dashboard', [
       'user' => $user,

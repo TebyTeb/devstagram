@@ -18,7 +18,7 @@
 <body class="bg-slate-100">
   <header class="border-b bg-white p-5 shadow">
     <div class="container mx-auto flex items-center justify-between">
-      <h1 class="text-3xl font-black"><a href="/">DevStagram</a></h1>
+      <h1 class="text-3xl font-black"><a href="{{route('home')}}">DevStagram</a></h1>
 
       @auth
         <nav class="flex items-center gap-3">
